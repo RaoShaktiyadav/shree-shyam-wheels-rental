@@ -1,7 +1,11 @@
 
 import { Fuel, Users, Briefcase, Star } from 'lucide-react';
 
-const FleetSection = () => {
+interface FleetSectionProps {
+  onBookNow: (car: { name: string; price: string; category: string }) => void;
+}
+
+const FleetSection = ({ onBookNow }: FleetSectionProps) => {
   const cars = [
     {
       id: 1,
@@ -142,7 +146,10 @@ const FleetSection = () => {
                     <span className="text-2xl font-bold text-amber-600">{car.price}</span>
                     <span className="text-gray-600">/day</span>
                   </div>
-                  <button className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-lg transition-colors">
+                  <button 
+                    onClick={() => onBookNow({ name: car.name, price: car.price, category: car.category })}
+                    className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-lg transition-colors"
+                  >
                     Book Now
                   </button>
                 </div>

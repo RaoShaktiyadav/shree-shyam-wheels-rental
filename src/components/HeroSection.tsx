@@ -1,7 +1,11 @@
 
 import { Star, Shield, Clock, Users } from 'lucide-react';
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  onBookNow: () => void;
+}
+
+const HeroSection = ({ onBookNow }: HeroSectionProps) => {
   return (
     <section id="home" className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 text-white py-20 overflow-hidden">
       {/* Background pattern */}
@@ -29,10 +33,16 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+            <button 
+              onClick={onBookNow}
+              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+            >
               Book Your Ride Now
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+            <button 
+              onClick={() => document.getElementById('fleet')?.scrollIntoView({ behavior: 'smooth' })}
+              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all"
+            >
               View Our Fleet
             </button>
           </div>

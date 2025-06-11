@@ -1,7 +1,11 @@
 
 import { MapPin, Clock, Shield, Headphones, Wrench, CreditCard } from 'lucide-react';
 
-const ServicesSection = () => {
+interface ServicesSectionProps {
+  onBookNow: () => void;
+}
+
+const ServicesSection = ({ onBookNow }: ServicesSectionProps) => {
   const services = [
     {
       icon: MapPin,
@@ -64,7 +68,10 @@ const ServicesSection = () => {
           <div className="bg-gradient-to-r from-amber-600 to-amber-700 rounded-2xl p-8 md:p-12 text-white">
             <h3 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your Journey?</h3>
             <p className="text-xl mb-8 opacity-90">Book your perfect ride today and experience the difference</p>
-            <button className="bg-white text-amber-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+            <button 
+              onClick={onBookNow}
+              className="bg-white text-amber-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
               Get Started Now
             </button>
           </div>

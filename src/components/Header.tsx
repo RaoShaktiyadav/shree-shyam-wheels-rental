@@ -2,7 +2,11 @@
 import { Phone, Mail, MapPin, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
-const Header = () => {
+interface HeaderProps {
+  onBookNow: () => void;
+}
+
+const Header = ({ onBookNow }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -50,7 +54,10 @@ const Header = () => {
               <a href="#services" className="text-gray-700 hover:text-amber-600 font-medium transition-colors">Services</a>
               <a href="#about" className="text-gray-700 hover:text-amber-600 font-medium transition-colors">About</a>
               <a href="#contact" className="text-gray-700 hover:text-amber-600 font-medium transition-colors">Contact</a>
-              <button className="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 transition-colors">
+              <button 
+                onClick={onBookNow}
+                className="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 transition-colors"
+              >
                 Book Now
               </button>
             </div>
@@ -73,7 +80,10 @@ const Header = () => {
                 <a href="#services" className="text-gray-700 hover:text-amber-600 font-medium">Services</a>
                 <a href="#about" className="text-gray-700 hover:text-amber-600 font-medium">About</a>
                 <a href="#contact" className="text-gray-700 hover:text-amber-600 font-medium">Contact</a>
-                <button className="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 transition-colors w-fit">
+                <button 
+                  onClick={onBookNow}
+                  className="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 transition-colors w-fit"
+                >
                   Book Now
                 </button>
               </div>
